@@ -8,6 +8,7 @@ import com.klef.jfsd.springboot.model.Internships;
 import com.klef.jfsd.springboot.model.Media;
 import com.klef.jfsd.springboot.model.Portfolio;
 import com.klef.jfsd.springboot.model.PortfolioData;
+import com.klef.jfsd.springboot.model.PortfolioFeedback;
 import com.klef.jfsd.springboot.model.PortfolioProjects;
 import com.klef.jfsd.springboot.model.Project;
 import com.klef.jfsd.springboot.model.ProjectDTO;
@@ -47,6 +48,7 @@ public interface StudentService
 	 public Media viewMediaByID(int mid);
 	 public long projectcount(int sid);
 	public List<ProjectFeedback> viewmyfeedback(int sid);
+	public List<PortfolioFeedback> viewmyportfoliofeedback(int sid);
 			
 	 public ProjectDTO toDTO(Project project) ;
 	 
