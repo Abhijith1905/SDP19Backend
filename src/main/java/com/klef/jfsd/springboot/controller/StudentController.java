@@ -148,6 +148,18 @@ public class StudentController
     public ProjectDTO displayProject(@RequestParam int projectId) {
         return studentService.viewProjectById(projectId); 
     }
+    
+    @GetMapping("displayprojectformedia")
+    public Project displayProjectForMedia(@RequestParam int projectId) {
+        return studentService.viewProjectByID(projectId); 
+    }
+    
+    
+    
+    
+    
+    
+    
 
     @GetMapping("/trackproject")
     public ProjectDTO trackProject(@RequestParam int projectId) {
