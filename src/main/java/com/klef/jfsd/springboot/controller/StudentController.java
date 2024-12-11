@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.klef.jfsd.springboot.model.GradeProject;
 import com.klef.jfsd.springboot.model.Media;
 import com.klef.jfsd.springboot.model.PortfolioData;
+import com.klef.jfsd.springboot.model.PortfolioFeedback;
 import com.klef.jfsd.springboot.model.PortfolioRequest;
 import com.klef.jfsd.springboot.model.Project;
 import com.klef.jfsd.springboot.model.ProjectDTO;
@@ -264,4 +264,12 @@ public class StudentController
 	{
 		return studentService.viewmyfeedback(sid);
 	}
+	
+	@GetMapping("viewmyportfoliofeedback")
+	public List<PortfolioFeedback> viewmyportfoliofeedback(@RequestParam int sid)
+	{
+		return studentService.viewmyportfoliofeedback(sid);
+	}
+	
+	
 }
