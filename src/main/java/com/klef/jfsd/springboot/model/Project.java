@@ -2,6 +2,7 @@ package com.klef.jfsd.springboot.model;
 
 import java.sql.Blob;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -18,6 +19,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
 import jakarta.persistence.MapKeyEnumerated;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -100,6 +102,9 @@ public class Project {
     @JsonIgnore
     @Lob
     private Blob reportCard;
+    
+    @OneToMany(mappedBy = "project")
+    private List<Media> mediaList;
 
     @Column(length = 255)
     private String projectLink;
@@ -222,4 +227,12 @@ public class Project {
     public void setStudentId(int studentId) {
         this.studentId = studentId;
     }
+
+	public List<Media> getMediaList() {
+		return mediaList;
+	}
+
+	public void setMediaList(List<Media> mediaList) {
+		this.mediaList = mediaList;
+	}
 }
