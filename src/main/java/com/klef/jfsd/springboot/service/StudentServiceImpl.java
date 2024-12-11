@@ -17,6 +17,7 @@ import com.klef.jfsd.springboot.model.Internships;
 import com.klef.jfsd.springboot.model.Media;
 import com.klef.jfsd.springboot.model.Portfolio;
 import com.klef.jfsd.springboot.model.PortfolioData;
+import com.klef.jfsd.springboot.model.PortfolioFeedback;
 import com.klef.jfsd.springboot.model.Project;
 import com.klef.jfsd.springboot.model.Project.ProjectPhase;
 import com.klef.jfsd.springboot.model.ProjectDTO;
@@ -28,6 +29,7 @@ import com.klef.jfsd.springboot.repository.CertificationsRepository;
 import com.klef.jfsd.springboot.repository.EducationRepository;
 import com.klef.jfsd.springboot.repository.InternshipsRepository;
 import com.klef.jfsd.springboot.repository.MediaRepository;
+import com.klef.jfsd.springboot.repository.PortfoliFeedbackRepository;
 import com.klef.jfsd.springboot.repository.PortfolioProjectsRepository;
 import com.klef.jfsd.springboot.repository.PortfolioRepository;
 import com.klef.jfsd.springboot.repository.ProjectFeedbackRepository;
@@ -65,6 +67,10 @@ public class StudentServiceImpl implements StudentService
 	
     @Autowired
     private ProjectFeedbackRepository projectFeedbackRepository;
+    
+    @Autowired
+    private PortfoliFeedbackRepository portfoliFeedbackRepository;
+    
 	@Override
 	public Student checkStudentLogin(String email, String password) {
 		Student student = studentRepository.checkStudentLogin(email, password);
@@ -419,6 +425,13 @@ public class StudentServiceImpl implements StudentService
 		public long projectcount(int sid)
 		{
 			return projectRepository.countByStudentId(sid);
+		}
+
+
+		@Override
+		public List<PortfolioFeedback> viewmyportfoliofeedback(int sid) {
+			
+			return portfoliFeedbackRepository.findAll();
 		}
 		
 	
