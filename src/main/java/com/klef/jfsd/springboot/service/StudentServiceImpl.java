@@ -80,14 +80,7 @@ public class StudentServiceImpl implements StudentService
 
 	 @Override
 	    public Project viewProjectByID(int pid) {
-	        Optional<Project> projectOpt = projectRepository.findById(pid);
-	        if(projectOpt.isPresent())
-	        {
-	            Project project = projectOpt.get();	         
-	                return project;
-	        }
-	        else
-	        	return null;
+	       return projectRepository.findById(pid).get();
 	    }
 
 	   
